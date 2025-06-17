@@ -9,8 +9,8 @@ using System.Collections;
 
 namespace UITests
 {
-    // [TestFixture("Chrome")]
-    // [TestFixture("Firefox")]
+    [TestFixture("Chrome")]
+    [TestFixture("Firefox")]
     [TestFixture("Edge")]
     public class HomePageTest
     {
@@ -31,19 +31,19 @@ namespace UITests
                 switch(browser)
                 {
                   case "Chrome":
-                    Console.WriteLine("ChromeWebDriver path: " + Environment.GetEnvironmentVariable("CHROMEWEBDRIVER"));
+                    TestContext.WriteLine("ChromeWebDriver path: " + Environment.GetEnvironmentVariable("CHROMEWEBDRIVER"));
                     driver = new ChromeDriver(
                         Environment.GetEnvironmentVariable("CHROMEWEBDRIVER")
                     );
                     break;
                   case "Firefox":
-                    Console.WriteLine("GeckoWebDriver path: " + Environment.GetEnvironmentVariable("GECKOWEBDRIVER"));
+                    TestContext.WriteLine("GeckoWebDriver path: " + Environment.GetEnvironmentVariable("GECKOWEBDRIVER"));
                     driver = new FirefoxDriver(
                         Environment.GetEnvironmentVariable("GECKOWEBDRIVER")
                     );
                     break;
                   case "Edge":
-                    Console.WriteLine("EdgeWebDriver path: " + Environment.GetEnvironmentVariable("EDGEWEBDRIVER"));
+                    TestContext.WriteLine("EdgeWebDriver path: " + Environment.GetEnvironmentVariable("EDGEWEBDRIVER"));
                     driver = new EdgeDriver(
                         Environment.GetEnvironmentVariable("EDGEWEBDRIVER"),
                         new EdgeOptions
