@@ -31,18 +31,21 @@ namespace UITests
                 switch(browser)
                 {
                   case "Chrome":
+                    Console.WriteLine("ChromeWebDriver path: " + Environment.GetEnvironmentVariable("CHROMEWEBDRIVER"));
                     driver = new ChromeDriver(
-                        Environment.GetEnvironmentVariable("ChromeWebDriver")
+                        Environment.GetEnvironmentVariable("CHROMEWEBDRIVER")
                     );
                     break;
                   case "Firefox":
+                    Console.WriteLine("GeckoWebDriver path: " + Environment.GetEnvironmentVariable("GECKOWEBDRIVER"));
                     driver = new FirefoxDriver(
-                        Environment.GetEnvironmentVariable("GeckoWebDriver")
+                        Environment.GetEnvironmentVariable("GECKOWEBDRIVER")
                     );
                     break;
                   case "Edge":
+                    Console.WriteLine("EdgeWebDriver path: " + Environment.GetEnvironmentVariable("EDGEWEBDRIVER"));
                     driver = new EdgeDriver(
-                        Environment.GetEnvironmentVariable("EdgeWebDriver"),
+                        Environment.GetEnvironmentVariable("EDGEWEBDRIVER"),
                         new EdgeOptions
                         {
                             UseChromium = true
@@ -60,6 +63,7 @@ namespace UITests
                 // The site name is stored in the SITE_URL environment variable to make 
                 // the tests more flexible.
                 string url = Environment.GetEnvironmentVariable("SITE_URL");
+                Console.WriteLine("Site URL: " + url);
                 driver.Navigate().GoToUrl(url + "/");
 
                 // Wait for the page to be completely loaded.
